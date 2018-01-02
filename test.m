@@ -1,12 +1,13 @@
-tx = ty = linspace (-8, 8, 41)';
-[xx, yy] = meshgrid (tx, ty);
+X = [1, 29, 1, 1; 1, 32, 1, 1; 1, 45, 2, 1; 1, 47, 2, 1; 1, 45, 3, 1; 1, 56, 3, 1; 1, 72, 4, 2];
+disp ('X matrix: '), disp (X);
 
-r = sqrt (xx .^ 2 + yy .^ 2) + eps;
-tz = sin (r) ./ r;
-mesh (tx, ty, tz);
+Y = [210; 250; 270; 280; 300; 320; 450];
+disp ('Y matrix: '), disp (Y);
 
-xlabel ('tx');
-ylabel ('ty');
-zlabel ('tz');
+Theta = pinv(X'*X)*X'*Y;
+disp ('Theta matrix: '), disp (Theta);
 
-title ('3-D Sombrero plot');
+X1 = [1; 50; 2; 1];
+predictedPrice = Theta'*X1;
+
+disp ('X1 matrix: '), disp (X1), disp ('predicted price:'), disp (predictedPrice);

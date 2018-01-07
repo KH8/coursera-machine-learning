@@ -1,1 +1,11 @@
 octave-workspace
+
+*.pdf
+
+lib
+
+ex*.m
+ex*.txt
+
+submit.m
+token.mat

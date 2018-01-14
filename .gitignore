@@ -7,5 +7,10 @@ lib
 ex*.m
 ex*.txt
 
+# ex1
 submit.m
 token.mat
+
+# ex2
+mapFeature.m
+plotDecisionBoundary.m

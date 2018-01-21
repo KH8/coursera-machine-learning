@@ -6,6 +6,7 @@ lib
 
 ex*.m
 ex*.txt
+ex*.mat
 
 # ex1
 submit.m
@@ -14,3 +15,8 @@ token.mat
 # ex2
 mapFeature.m
 plotDecisionBoundary.m
+
+# ex3
+displayData.m
+fmincg.m
+sigmoid.m

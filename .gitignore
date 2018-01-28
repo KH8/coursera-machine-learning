@@ -20,3 +20,9 @@ plotDecisionBoundary.m
 displayData.m
 fmincg.m
 sigmoid.m
+
+# ex4
+checkNNGradients.m
+computeNumericalGradient.m
+debugInitializeWeights.m
+predict.m

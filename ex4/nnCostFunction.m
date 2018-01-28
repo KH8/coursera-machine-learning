@@ -8,8 +8,8 @@ function [J grad] = nnCostFunction(nn_params, ...
 %   [J grad] = NNCOSTFUNCTON(nn_params, hidden_layer_size, num_labels, ...
 %   X, y, lambda) computes the cost and gradient of the neural network. The
 %   parameters for the neural network are "unrolled" into the vector
-%   nn_params and need to be converted back into the weight matrices. 
-% 
+%   nn_params and need to be converted back into the weight matrices.
+%
 %   The returned parameter grad should be a "unrolled" vector of the
 %   partial derivatives of the neural network.
 %
@@ -24,8 +24,8 @@ Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):en
 
 % Setup some useful variables
 m = size(X, 1);
-         
-% You need to return the following variables correctly 
+
+% You need to return the following variables correctly
 J = 0;
 Theta1_grad = zeros(size(Theta1));
 Theta2_grad = zeros(size(Theta2));
@@ -38,6 +38,18 @@ Theta2_grad = zeros(size(Theta2));
 %         variable J. After implementing Part 1, you can verify that your
 %         cost function computation is correct by verifying the cost
 %         computed in ex4.m
+
+h0 = nnH0(Theta1, Theta2, X);
+
+for i=1:num_labels
+  yk = y == i;
+  h0k = h0(i,:);
+  J = J + sum((-1 * yk)' * log(h0k)' - (1 - yk)' * log(1 - h0k)') / m;
+end
+
+J = J + sum(sum(Theta1(:,2:size(Theta1,2)) .^ 2)) * lambda / (2 * m);
+J = J + sum(sum(Theta2(:,2:size(Theta2,2)) .^ 2)) * lambda / (2 * m);
+
 %
 % Part 2: Implement the backpropagation algorithm to compute the gradients
 %         Theta1_grad and Theta2_grad. You should return the partial derivatives of
@@ -46,13 +58,16 @@ Theta2_grad = zeros(size(Theta2));
 %         that your implementation is correct by running checkNNGradients
 %
 %         Note: The vector y passed into the function is a vector of labels
-%               containing values from 1..K. You need to map this vector into a 
+%               containing values from 1..K. You need to map this vector into a
 %               binary vector of 1's and 0's to be used with the neural network
 %               cost function.
 %
 %         Hint: We recommend implementing backpropagation using a for-loop
-%               over the training examples if you are implementing it for the 
+%               over the training examples if you are implementing it for the
 %               first time.
+
+
+
 %
 % Part 3: Implement regularization with the cost function and gradients.
 %
@@ -63,24 +78,6 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-% -------------------------------------------------------------
 
 % =========================================================================
 

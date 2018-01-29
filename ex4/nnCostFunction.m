@@ -68,22 +68,22 @@ J = J + sum(sum(Theta2(:,2:size(Theta2,2)) .^ 2)) * lambda / (2 * m);
 
 for i=1:m
   a1i = [1, X(i,:)];
-  z1i = Theta1 * a1i';
+  z2i = Theta1 * a1i';
 
-  a2i = [1, sigmoid(z1i)'];
-  z2i = Theta2 * a2i';
+  a2i = [1, sigmoid(z2i)'];
+  z3i = Theta2 * a2i';
 
-  a3i = sigmoid(z2i);
+  a3i = sigmoid(z3i);
 
   d3i = zeros(num_labels, 1);
   for j=1:num_labels
     yik = y(i) == j;
-    a3ik = a3i(j,:);
+    a3ik = a3i(j);
     d3i(j) = a3ik - yik;
   end
   Theta2_grad = Theta2_grad .+ d3i*a2i;
 
-  d2i = Theta2'*(d3i.*sigmoidGradient(z2i));
+  d2i = Theta2'*d3i.*sigmoidGradient([1;z2i]);
   Theta1_grad = Theta1_grad .+ d2i(2:length(d2i))*a1i;
 end
 

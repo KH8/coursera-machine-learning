@@ -66,7 +66,29 @@ J = J + sum(sum(Theta2(:,2:size(Theta2,2)) .^ 2)) * lambda / (2 * m);
 %               over the training examples if you are implementing it for the
 %               first time.
 
+for i=1:m
+  a1i = [1, X(i,:)];
+  z1i = Theta1 * a1i';
 
+  a2i = [1, sigmoid(z1i)'];
+  z2i = Theta2 * a2i';
+
+  a3i = sigmoid(z2i);
+
+  d3i = zeros(num_labels, 1);
+  for j=1:num_labels
+    yik = y(i) == j;
+    a3ik = a3i(j,:);
+    d3i(j) = a3ik - yik;
+  end
+  Theta2_grad = Theta2_grad .+ d3i*a2i;
+
+  d2i = Theta2'*(d3i.*sigmoidGradient(z2i));
+  Theta1_grad = Theta1_grad .+ d2i(2:length(d2i))*a1i;
+end
+
+Theta1_grad = Theta1_grad ./ m;
+Theta2_grad = Theta2_grad ./ m;
 
 %
 % Part 3: Implement regularization with the cost function and gradients.
@@ -77,7 +99,13 @@ J = J + sum(sum(Theta2(:,2:size(Theta2,2)) .^ 2)) * lambda / (2 * m);
 %               and Theta2_grad from Part 2.
 %
 
+Theta1_grad_j1 = Theta1_grad(:,1);
+Theta1_grad = Theta1_grad + (Theta1 * lambda / m);
+Theta1_grad(:,1) = Theta1_grad_j1;
 
+Theta2_grad_j1 = Theta2_grad(:,1);
+Theta2_grad = Theta2_grad + (Theta2 * lambda / m);
+Theta2_grad(:,1) = Theta2_grad_j1;
 
 % =========================================================================
 

@@ -8,21 +8,31 @@ ex*.m
 ex*.txt
 ex*.mat
 
-# ex1
 submit.m
 token.mat
 
+# ex1
+
 # ex2
-mapFeature.m
-plotDecisionBoundary.m
+ex2/mapFeature.m
+ex2/plotDecisionBoundary.m
 
 # ex3
-displayData.m
-fmincg.m
-sigmoid.m
+ex3/displayData.m
+ex3/fmincg.m
+ex3/sigmoid.m
 
 # ex4
-checkNNGradients.m
-computeNumericalGradient.m
-debugInitializeWeights.m
-predict.m
+ex4/displayData.m
+ex4/fmincg.m
+ex4/checkNNGradients.m
+ex4/computeNumericalGradient.m
+ex4/debugInitializeWeights.m
+ex4/predict.m
+ex4/sigmoid.m
+
+# ex5
+ex5/fmincg.m
+ex5/featureNormalize.m
+ex5/plotFit.m
+ex5/trainLinearReg.m

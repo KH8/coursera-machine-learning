@@ -36,3 +36,14 @@ ex5/fmincg.m
 ex5/featureNormalize.m
 ex5/plotFit.m
 ex5/trainLinearReg.m
+
+# ex6
+ex6/*.txt
+ex6/*.mat
+ex6/svm*.m
+ex6/getVocabList.m
+ex6/linearKernel.m
+ex6/plotData.m
+ex6/porterStemmer.m
+ex6/readFile.m
+ex6/visualize*.m

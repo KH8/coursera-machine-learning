@@ -23,7 +23,11 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
-C = 100
+% found with:
+% [C, sigma] = findOptimalParams(X, y, Xval, yval)
+
+C = 1;
+sigma = 0.1;
 
 % =========================================================================
 

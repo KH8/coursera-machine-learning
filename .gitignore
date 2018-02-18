@@ -47,3 +47,17 @@ ex6/plotData.m
 ex6/porterStemmer.m
 ex6/readFile.m
 ex6/visualize*.m
+
+# ex7
+ex7/ex7.m
+ex7/ex7data2.mat
+ex7/ex7faces.mat
+ex7/bird_small.png
+ex7/bird_small.mat
+ex7/displayData.m
+ex7/drawLine.m
+ex7/runkMeans.m
+ex7/submit.m
+ex7/featureNormalize.m
+ex7/plotDataPoints.m
+ex7/plotProgresskMeans.m

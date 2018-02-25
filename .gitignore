@@ -60,4 +60,15 @@ ex7/runkMeans.m
 ex7/submit.m
 ex7/featureNormalize.m
 ex7/plotDataPoints.m
-ex7/plotProgresskMeans.m
+ex7/plotProgresskMeans.
+
+# ex8
+
+ex8/multivariateGaussian.m
+ex8/visualizeFit.m
+ex8/checkCostFunction.m
+ex8/computeNumericalGradient.m
+ex8/fmincg.m
+ex8/loadMovieList.m
+ex8/movie_ids.txt
+ex8/normalizeRatings.m
